@@ -1,12 +1,23 @@
 Name: x11-driver-video-s3
 Version: 0.5.0
-Release: %mkrel 2
+Release: %mkrel 3
 Summary: The X.org driver for generic S3 Cards
 Group: Development/X11
-URL: http://xorg.freedesktop.org
-Source: http://xorg.freedesktop.org/releases/individual/driver/xf86-video-s3-%{version}.tar.bz2
+
+########################################################################
+# git clone git//git.mandriva.com/people/pcpa/xorg/drivers/xf86-video-s3  xorg/drivers/xf86-video-s3
+# cd xorg/drivers/xf86-video/s3
+# git-archive --format=tar --prefix=xf86-video-s3-0.5.0/ master | bzip2 -9 > xf86-video-s3-0.5.0.tar.bz2
+########################################################################
+Source0: xf86-video-s3-%{version}.tar.bz2
+
 License: MIT
 BuildRoot: %{_tmppath}/%{name}-root
+
+########################################################################
+# git-format-patch master..origin/mandriva+gpl
+Patch1: 0001-Update-for-new-policy-of-hidden-symbols-and-common-m.patch
+########################################################################
 
 BuildRequires: x11-proto-devel >= 1.0.0
 BuildRequires: x11-server-devel >= 1.0.1
@@ -21,7 +32,10 @@ The X.org driver for generic S3 Cards
 %prep
 %setup -q -n xf86-video-s3-%{version}
 
+%patch1 -p1
+
 %build
+autoreconf -ifs
 %configure
 %make
 
