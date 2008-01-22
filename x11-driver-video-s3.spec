@@ -1,8 +1,6 @@
-%define debug_package	%{nil}
-
 Name: x11-driver-video-s3
 Version: 0.5.0
-Release: %mkrel 3
+Release: %mkrel 4
 Summary: The X.org driver for generic S3 Cards
 Group: Development/X11
 URL: http://xorg.freedesktop.org
