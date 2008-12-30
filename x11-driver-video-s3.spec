@@ -1,6 +1,6 @@
 Name: x11-driver-video-s3
 Version: 0.6.1
-Release: %mkrel 1
+Release: %mkrel 2
 Summary: X.org driver for generic S3 Cards
 Group: System/X11
 URL: http://xorg.freedesktop.org
