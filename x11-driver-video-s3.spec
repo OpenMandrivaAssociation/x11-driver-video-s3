@@ -1,12 +1,11 @@
 Name: x11-driver-video-s3
 Version: 0.6.3
-Release: %mkrel 6
+Release: 7
 Summary: X.org driver for generic S3 Cards
 Group: System/X11
+License: MIT
 URL: http://xorg.freedesktop.org
 Source: http://xorg.freedesktop.org/releases/individual/driver/xf86-video-s3-%{version}.tar.bz2
-License: MIT
-BuildRoot: %{_tmppath}/%{name}-root
 
 BuildRequires: x11-proto-devel >= 1.0.0
 BuildRequires: x11-server-devel >= 1.0.1
@@ -20,7 +19,7 @@ Conflicts: xorg-x11-server < 7.0
 x11-driver-video-s3 is the X.org driver for generic S3 Cards.
 
 %prep
-%setup -q -n xf86-video-s3-%{version}
+%setup -qn xf86-video-s3-%{version}
 
 %build
 %configure2_5x
@@ -29,12 +28,9 @@ x11-driver-video-s3 is the X.org driver for generic S3 Cards.
 %install
 rm -rf %{buildroot}
 %makeinstall_std
-
-%clean
-rm -rf %{buildroot}
+find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
 
 %files
-%defattr(-,root,root)
-%{_libdir}/xorg/modules/drivers/s3_drv.la
 %{_libdir}/xorg/modules/drivers/s3_drv.so
 %{_mandir}/man4/s3.*
+
