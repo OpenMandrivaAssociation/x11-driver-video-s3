@@ -6,6 +6,7 @@ Group:		System/X11
 License:	MIT
 Url:		http://xorg.freedesktop.org
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-s3-%{version}.tar.bz2
+Patch0:		remove_mibstore_h.patch
 
 BuildRequires:	pkgconfig(xorg-macros)
 BuildRequires:	pkgconfig(xorg-server)
@@ -17,6 +18,7 @@ x11-driver-video-s3 is the X.org driver for generic S3 Cards.
 
 %prep
 %setup -qn xf86-video-s3-%{version}
+%apply_patches
 
 %build
 %configure2_5x
