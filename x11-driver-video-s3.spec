@@ -1,3 +1,5 @@
+%define _disable_ld_no_undefined 1
+
 Summary:	X.org driver for generic S3 Cards
 Name:		x11-driver-video-s3
 Version:	0.6.5
