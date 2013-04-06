@@ -8,3 +8,13 @@
  #include "fb.h"
  #include "inputstr.h"
  #include "shadowfb.h"
+--- xf86-video-s3-0.6.5/src/s3_driver.c~	2013-04-06 02:24:58.071846990 +0200
++++ xf86-video-s3-0.6.5/src/s3_driver.c	2013-04-06 02:26:07.986204010 +0200
+@@ -821,7 +821,6 @@ static Bool S3ScreenInit(SCREEN_INIT_ARG
+ 	fbPictureInit (pScreen, 0, 0);
+ 	S3DGAInit(pScreen);
+ 
+-        miInitializeBackingStore(pScreen);
+         xf86SetBackingStore(pScreen);
+ 
+ 	/* framebuffer manager setup */
